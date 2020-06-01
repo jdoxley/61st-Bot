@@ -8,9 +8,10 @@ public class Webhook{
         this.url=url;
     }
 
-    public HttpResponse<JsonNode> getRequset(String name){
+    public HttpResponse<JsonNode> getRequset(String name, Boolean sl){
         return Unirest.get(url)
                 .queryString("user",name)
+                .queryString("sl",sl)
                 .asJson();
     }
 
